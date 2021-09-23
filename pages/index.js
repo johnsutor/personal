@@ -1,82 +1,128 @@
-import Head from 'next/head'
+import Layout from '../components/Layout'
+import Link from 'next/link'
+import matter from "gray-matter";
 
-export default function Home() {
+export default function Home({ articles, projects }) {
+  const loaded_articles = articles.map((article) => matter(article)).map((article) => article.data)
+  const loaded_projects = projects.map((project) => matter(project)).map((project) => project.data)
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
+    <Layout>
+      <div className="flex flex-col items-center justify-center py-2">
+        <main className="h-full w-full">
+          {/* Top of the page */}
+          <div className="flex flex-col lg:flex-row w-full h-full">
+            <div className="flex flex-col justify-center items-center -mt-12 lg:pt-0 lg:w-1/2 text-center lg:text-left h-screen ">
+              <h2 className="text-6xl font-extrabold">
+                Hey, I'm John Sutor 👋
+              </h2>
+              <span className="flex w-full justify-center lg:justify-start items-center text-2xl font-bold mt-4">
+                <Link href="/papers">
+                  <span className="mr-2 bg-gradient-to-r from-blue-700 to-green-700 p-2 text-white rounded-md cursor-pointer">
+                    Papers
+                  </span>
+                </Link>
+                <a href="mailto:john@sciteens.org" className="mx-2 text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-blue-700">
+                  Contact
+                </a>
+              </span>
+            </div>
+            <img className="lg:w-1/2 object-contain" src="john.jpg" alt="John Hiking" />
+          </div>
+          
+          {/* About */}
+          <div className="w-full text-xl mt-8 px-2">
+            <h3 className="text-2xl font-bold">
+              About Me
+            </h3>
+            <p>
+              Howdy! I'm a current Junior at Florida State University majoring in
+              Computational Science and Applied Mathematics. I conduct research under
+              Professor Jonathan Adams on the topic of Computer Vision and Synthetic
+              Data. I'm also one of the co-founders of&nbsp;
+              <a href="https://sciteens.org" target="_blank" className="font-bold">
+                SciTeens
+              </a>
+              . We aim to bring scientific research, especially data-centric scientific
+              research, to all students regardless of their background. When I'm not
+              nerding out, my hobbies include meal prepping, camping/hiking, and vinyl
+              collecting.
             </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
+            <p className="mt-2">
+              Feel free to peruse some of my articles below. I try and interject humor 
+              where possible to keep them both as informative and engaging as possible 😁.
             </p>
-          </a>
+          </div>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
+          {/* Articles */}
+          <div className="w-full text-xl mt-8 px-2">
+            <h3 className="text-2xl font-bold">
+              Articles
+            </h3>
+              {loaded_articles.map((article, i) => (
+                <Link href={`/articles/${article.slug}`} key={i}>
+                  <div className="py-2 cursor-pointer border-b-2">
+                    <a className="font-semibold">{article.title}</a>
+                    <p>{article.description}</p>
+                  </div>
+                </Link>
+            ))}
+          </div>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+          {/* Projects} */}
+          <div className="w-full text-xl mt-8 px-2">
+            <h3 className="text-2xl font-bold">
+              Projects
+            </h3>
+              {loaded_projects.map((project, i) => (
+                <a href={project.url} key={i}>
+                  <div className="py-2 cursor-pointer border-b-2">
+                    <a className="font-semibold">{project.title}</a>
+                    <p className="italic">
+                      {project.tags.map(((tag, j) => (
+                        <span>{tag}, </span>
+                      )))}
+                      </p>
+                    <p>{project.about}</p>
+                  </div>
+                </a>
+            ))}
+          </div>
+        </main>
+      </div>
+    </Layout>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
   )
+}
+
+export async function getStaticProps() {
+  const fs = require("fs");
+
+  const article_md = fs.readdirSync(`${process.cwd()}/content/articles`, "utf-8").filter((fn) => fn.endsWith(".md"));
+  const project_md = fs.readdirSync(`${process.cwd()}/content/projects`, "utf-8").filter((fn) => fn.endsWith(".md"));
+
+  const articles = article_md.map((article) => {
+    const path = `${process.cwd()}/content/articles/${article}`;
+    const rawContent = fs.readFileSync(path, {
+      encoding: "utf-8",
+    });
+
+    return rawContent;
+  });
+
+  const projects = project_md.map((project) => {
+    const path = `${process.cwd()}/content/projects/${project}`;
+    const rawContent = fs.readFileSync(path, {
+      encoding: "utf-8",
+    });
+
+    return rawContent;
+  });
+
+  return {
+    props: {
+      articles: articles,
+      projects: projects,
+    },
+  };
 }
