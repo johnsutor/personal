@@ -31,7 +31,7 @@ export default function Home({ articles, projects }) {
           </div>
           
           {/* About */}
-          <div className="w-full text-xl mt-8 px-2">
+          <div className="w-full text-xl mt-8">
             <h3 className="text-2xl font-bold">
               About Me
             </h3>
@@ -55,7 +55,7 @@ export default function Home({ articles, projects }) {
           </div>
 
           {/* Articles */}
-          <div className="w-full text-xl mt-8 px-2">
+          <div className="w-full text-xl mt-8">
             <h3 className="text-2xl font-bold">
               Articles
             </h3>
@@ -70,14 +70,14 @@ export default function Home({ articles, projects }) {
           </div>
 
           {/* Projects} */}
-          <div className="w-full text-xl mt-8 px-2">
+          <div className="w-full text-xl mt-8">
             <h3 className="text-2xl font-bold">
               Projects
             </h3>
               {loaded_projects.map((project, i) => (
                 <a href={project.url} key={i}>
                   <div className="py-2 cursor-pointer border-b-2">
-                    <a className="font-semibold">{project.title}</a>
+                    <p className="font-semibold">{project.title}</p>
                     <p className="italic">
                       {project.tags.map(((tag, j) => (
                         <span>{tag}, </span>

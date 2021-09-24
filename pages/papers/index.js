@@ -6,7 +6,7 @@ export default function Papers({ papers }) {
 
   return (
     <Layout>
-      <div className="w-full text-xl mt-8 px-2">
+      <div className="w-full text-xl mt-8">
             <h2 className="text-4xl font-bold">
               Papers
             </h2>
