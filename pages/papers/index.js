@@ -14,7 +14,7 @@ export default function Papers({ papers }) {
                 <a href={paper.url} key={i}>
                   <div className="py-2 cursor-pointer border-b-2">
                     <h2 className="font-semibold">{paper.title}</h2>
-                    <p className="italic">{paper.conference}</p>
+                    <p className="italic text-gray-700">{paper.conference}</p>
                     <p>{paper.abstract}</p>
                   </div>
                 </a>

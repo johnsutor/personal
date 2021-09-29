@@ -39,7 +39,10 @@ export default function Home({ articles, projects }) {
               Howdy! I'm a current Junior at Florida State University majoring in
               Computational Science and Applied Mathematics. I conduct research under
               Professor Jonathan Adams on the topic of Computer Vision and Synthetic
-              Data. I'm also one of the co-founders of&nbsp;
+              Data within the lab that me and some other undergraduates started, the&nbsp;
+              <a href="https://mllab.cci.fsu.edu/" target="_blank" className="font-bold">
+                Mlab
+              </a>. I'm also one of the co-founders of&nbsp;
               <a href="https://sciteens.org" target="_blank" className="font-bold">
                 SciTeens
               </a>
@@ -78,7 +81,7 @@ export default function Home({ articles, projects }) {
                 <a href={project.url} key={i}>
                   <div className="py-2 cursor-pointer border-b-2">
                     <p className="font-semibold">{project.title}</p>
-                    <p className="italic">
+                    <p className="italic text-gray-600">
                       {project.tags.map(((tag, j) => (
                         <span>{tag}, </span>
                       )))}

@@ -19,7 +19,7 @@ export default function Press({ press }) {
                     </div>
                     <div className="mt-4 lg:ml-4 lg:w-3/4">
                         <h2 className="font-semibold">{article.title}</h2>
-                        <p className="italic">{article.organization}</p>
+                        <p className="italic text-gray-700">{article.organization}</p>
                         <p>{article.snippet}</p>
                     </div>
                   </div>
