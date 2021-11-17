@@ -24,6 +24,9 @@ export default function NavBar() {
                     Press
                 </span>
             </Link>
+            <a href="https://drive.google.com/file/d/1co1kKJcJeSdXAfNMzW4-JsUQoxNXYvcP/view?usp=sharing" target="_blank" classNamepx-2>
+                CV
+            </a>
         </div>
     </div>
   )
