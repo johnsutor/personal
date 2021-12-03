@@ -13,7 +13,7 @@ export default function Papers({ papers }) {
               {loaded_papers.map((paper, i) => (
                 <a href={paper.url} key={i}>
                   <div className="py-2 cursor-pointer border-b-2">
-                    <h2 className="font-semibold">{paper.title}</h2>
+                    <h2 className="font-semibold text-2xl">{paper.title}</h2>
                     <p className="italic text-gray-700">{paper.conference}</p>
                     <p>{paper.abstract}</p>
                   </div>

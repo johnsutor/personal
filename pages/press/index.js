@@ -18,7 +18,7 @@ export default function Press({ press }) {
                         <img src={article.image} className="w-full h-full object-contain lg:rounded-md"/>
                     </div>
                     <div className="mt-4 lg:ml-4 lg:w-3/4">
-                        <h2 className="font-semibold">{article.title}</h2>
+                        <h2 className="font-semibold text-2xl">{article.title}</h2>
                         <p className="italic text-gray-700">{article.organization}</p>
                         <p>{article.snippet}</p>
                     </div>
