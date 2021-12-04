@@ -1,5 +1,5 @@
 ---
-title: 🦦 Dead Simple I18n Using Google Translate
+title: 🌐 Dead Simple I18n Using Google Translate
 description: I18n (Internationalization) has never been simpler to implement using Google Sheets and Python.
 slug: dead-simple-i18n
 ---
