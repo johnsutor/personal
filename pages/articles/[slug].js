@@ -7,12 +7,12 @@ export default function Article({ content, data }) {
 
   return (
     <Layout>
-      <article className="max-w-none">
+      <article className="max-w-prose mx-auto">
         <header>
-          <h1 className="font-extrabold text-4xl mt-8">{frontmatter.title}</h1>
-          <h3 className="italic text-2xl font-semibold my-2">{frontmatter.description}</h3>
+          <h1 className="font-extrabold text-2xl lg:text-4xl mt-8">{frontmatter.title}</h1>
+          <h3 className="italic text-lg lg:text-2xl font-semibold my-2">{frontmatter.description}</h3>
         </header>
-        <ReactMarkdown children={content} className="prose prose-sm lg:prose prose-blue max-w-none mx-auto"/>
+        <ReactMarkdown children={content} className="prose prose-sm lg:prose-lg prose-blue max-w-none mx-auto"/>
       </article>
     </Layout>
   );

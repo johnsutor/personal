@@ -47,6 +47,8 @@ def slugify(text: str):
 Next, we can go ahead and convert our translation into a JSON using the code below. In essence, this code will create a new table that only contains the information needed for creating a slug. This includes the page name, the ref, and the language that we're providing the translations in. We'll then go ahead and drop any empty columns (that we may have in our spreadsheet to break up the translations). Then, we can create a dictionary with each key corresponding to a page in our translations. Finally, we'll go ahead and assign every translation in our table to the respective page, and save this dictionary as a JSON.
 
 ```py
+import json 
+
 def save_translation(table: pd.DataFrame, language: str):
     
     # Use only the necessary columns, and turn page names into slugs
