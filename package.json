@@ -12,7 +12,9 @@
     "raw-loader": "^4.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-markdown": "^7.0.1"
+    "react-gist": "^1.2.4",
+    "react-markdown": "^7.0.1",
+    "rehype-raw": "^6.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
