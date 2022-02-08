@@ -18,9 +18,11 @@ export default function Home({ articles, projects }) {
               </h2>
               <span className="flex w-full justify-center lg:justify-start items-center text-2xl font-bold mt-4">
                 <Link href="/papers">
+                  <a>
                   <span className="mr-2 bg-gradient-to-r from-blue-700 to-green-700 p-2 text-white rounded-md cursor-pointer">
                     Papers
                   </span>
+                  </a>
                 </Link>
                 <a href="mailto:john@sciteens.org" className="mx-2 text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-blue-700">
                   Contact
