@@ -64,10 +64,12 @@ export default function Home({ articles, projects }) {
             </h3>
               {loaded_articles.map((article, i) => (
                 <Link href={`/articles/${article.slug}`} key={i}>
+                  <a>
                   <div className="py-2 cursor-pointer border-b-2">
                     <a className="font-semibold">{article.title}</a>
                     <p>{article.description}</p>
                   </div>
+                  </a>
                 </Link>
             ))}
           </div>
