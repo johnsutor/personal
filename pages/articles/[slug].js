@@ -5,8 +5,7 @@ import rehypeRaw from 'rehype-raw'
 import Gist from "react-gist";
 
 
-export default function Article({ content, data }) {
-  const frontmatter = data;
+function Article({ content, frontmatter }) {
 
   return (
     <Layout>
@@ -34,9 +33,30 @@ export default function Article({ content, data }) {
   );
 };
 
+export async function getStaticPaths() {
+  const fs = require('fs');
+  const fileNames = fs.readdirSync("./content/articles/")
+  let article_slugs =  fileNames.map(fileName => {
+    return {
+      params: {
+        slug: fileName.replace(/\.md$/, '')
+      }
+    }
+  })
+  console.log(article_slugs)
+  return { paths: article_slugs, fallback: false }
+}
 
-Article.getInitialProps = async (context) => {
-    const content = await import(`../../content/articles/${context.query.slug}.md`);
-    const data = matter(content.default);
-    return { ...data };
-};
+export async function getStaticProps(context) {
+  const content = await import(`../../content/articles/${context.params.slug}.md`);
+  const data = matter(content.default);
+  return { props: {frontmatter: data.data, content: data.content } };
+}
+
+// Article.getInitialProps = async (context) => {
+//     const content = await import(`../../content/articles/${context.query.slug}.md`);
+//     const data = matter(content.default);
+//     return { ...data };
+// };
+
+export default Article
