@@ -5,7 +5,7 @@ export default function NavBar() {
     <div className="flex justify-between py-4">
         <Link href="/">
             <a>
-            <h1 className="text-2xl font-bold w-1/2 cursor-pointer">
+            <h1 className="text-2xl font-bold cursor-pointer">
                 John Sutor
             </h1>
             </a>
@@ -32,7 +32,7 @@ export default function NavBar() {
                 </span>
                 </a>
             </Link>
-            <a href="https://drive.google.com/file/d/1co1kKJcJeSdXAfNMzW4-JsUQoxNXYvcP/view?usp=sharing" target="_blank" classNamepx-2>
+            <a href="/sutor_cv.pdf" target="_blank" className="px-2">
                 CV
             </a>
         </div>
