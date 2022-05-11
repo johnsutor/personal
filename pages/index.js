@@ -79,7 +79,7 @@ export default function Home({ articles, projects }) {
           {/* Projects} */}
           <div className="w-full text-xl mt-8">
             <h3 className="text-2xl font-bold">
-              Projects
+              What I've Created
             </h3>
               {loaded_projects.map((project, i) => (
                 <a href={project.url} key={i}>
