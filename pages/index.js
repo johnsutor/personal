@@ -38,8 +38,9 @@ export default function Home({ articles, projects }) {
               About Me
             </h3>
             <p>
-              Howdy! I'm a current Junior at Florida State University majoring in
-              Computational Science and Applied Mathematics. I conduct research under
+              Howdy! I'm a current first-year masters student studying Data Science at New 
+              York University. Previously, I studied Applied Mathematics and Computational 
+              Science at Florida State University. There, I conducted research under
               Professor Jonathan Adams on the topic of Computer Vision and Synthetic
               Data within the lab that me and some other undergraduates started, the&nbsp;
               <a href="https://mllab.cci.fsu.edu/" target="_blank" className="font-bold">
@@ -48,14 +49,8 @@ export default function Home({ articles, projects }) {
               <a href="https://sciteens.org" target="_blank" className="font-bold">
                 SciTeens
               </a>
-              . We aim to bring scientific research, especially data-centric scientific
-              research, to all students regardless of their background. When I'm not
-              nerding out, my hobbies include meal prepping, camping/hiking, and vinyl
-              collecting.
-            </p>
-            <p className="mt-2">
-              Feel free to peruse some of my articles below. I try and interject humor 
-              where possible to keep them both as informative and engaging as possible 😁.
+              . I'm really into meal prepping, herping, camping/hiking, and vinyl
+              collecting; feel free to reach out if you are too!
             </p>
           </div>
 
