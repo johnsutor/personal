@@ -12,20 +12,16 @@ export default function NavBar() {
         </Link>
         <div className="flex justify-end w-1/2">
             <Link href="/">
-                <a>
-                <span className="px-2 cursor-pointer">
+                <a className="px-2 cursor-pointer text-gray-700 transition-transform hover:text-black hover:scale-110">
                     Home
-                </span>
                 </a>
             </Link>
             <Link href="/press">
-                <a>
-                <span className="px-2 cursor-pointer">
+                <a className="px-2 cursor-pointer text-gray-700 transition-transform hover:text-black hover:scale-110">
                     Press
-                </span>
                 </a>
             </Link>
-            <a href="/resume_js.pdf" target="_blank" className="px-2">
+            <a href="/resume_js.pdf" target="_blank" className="px-2 text-gray-700 transition-transform hover:text-black hover:scale-110">
                 Resume
             </a>
         </div>

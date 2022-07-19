@@ -71,7 +71,7 @@ export default function Home({ articles, projects }) {
                 {
                   profiles.map(profile => (
                   <a target="_blank" href={profile.url} class="mr-4">
-                      <div class="h-10 w-10 fill-current text-gray-700" dangerouslySetInnerHTML={{__html: profile.icon}}></div>
+                      <div class="h-10 w-10 fill-current text-gray-700 transition-transform hover:text-black hover:scale-110" dangerouslySetInnerHTML={{__html: profile.icon}}></div>
                   </a>
                   ))
                 }
@@ -82,8 +82,8 @@ export default function Home({ articles, projects }) {
           </div>
           
           {/* About */}
-          <div className="w-full text-xl mt-8">
-            <h3 className="text-2xl font-bold">
+          <div className="w-full text-xl mt-8 max-w-prose mx-auto">
+            <h3 className="text-4xl font-bold">
               About Me
             </h3>
             <p>
@@ -104,20 +104,20 @@ export default function Home({ articles, projects }) {
           </div>
 
           {/* Projects} */}
-          <div className="w-full text-xl mt-8">
-            <h3 className="text-2xl font-bold">
+          <div className="w-full text-xl mt-8 max-w-prose mx-auto">
+            <h3 className="text-4xl font-bold">
               What I've Created
             </h3>
               {loaded_projects.map((project, i) => (
                 <a href={project.url} key={i}>
-                  <div className="py-2 cursor-pointer border-b-2">
-                    <p className="font-semibold">{project.title}</p>
-                    <p className="italic text-gray-600">
+                  <div className="py-4 cursor-pointer border-b-2 group transform duration-150 hover:py-6">
+                    <h4 className="font-semibold text-3xl">{project.title}</h4>
+                    <p className="italic mt-1">
                       {project.tags.map(((tag, j) => (
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{tag}</span>
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 group-hover:text-white group-hover:bg-black">{tag}</span>
                       )))}
                       </p>
-                    <p>{project.about}</p>
+                    <p className='text-gray-700'>{project.about}</p>
                   </div>
                 </a>
             ))}
