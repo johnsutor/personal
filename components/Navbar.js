@@ -18,13 +18,6 @@ export default function NavBar() {
                 </span>
                 </a>
             </Link>
-            <Link href="/papers">
-                <a>
-                <span className="px-2 cursor-pointer">
-                    Papers
-                </span>
-                </a>
-            </Link>
             <Link href="/press">
                 <a>
                 <span className="px-2 cursor-pointer">
@@ -32,8 +25,8 @@ export default function NavBar() {
                 </span>
                 </a>
             </Link>
-            <a href="/sutor_cv.pdf" target="_blank" className="px-2">
-                CV
+            <a href="/resume_js.pdf" target="_blank" className="px-2">
+                Resume
             </a>
         </div>
     </div>

@@ -15,8 +15,15 @@ The first method that we'll explore is feeding random words to DALL-E 2. In orde
 
 ![researchful](/article7/image005.png)
 
+The first three generated strings were "researchful", "calyptriform", and "amellus". As expected, DALL-E did a near-perfect job of generating these samples. While the first two words were in fact adjectives, DALL-E interpreted them as their noun counterparts; the first images created clearly depict scientists conducting research in a lab setting, while the second batch of images clearly depict what appear to be Anemones and plants. THe latter is similar enough to the true definition of Calyptra, which is a [hoodlike structure in a plant](https://www.merriam-webster.com/dictionary/calyptra). The final example, however, is a ways off: an Amellus is a type of purple flower, not a basket of mushrooms as seems to be interpreted by DALL-E. unfortunately, appending "flower" to "amellus" still fails to return the desired results. 
 
-We can go ahead and sample variable length phrases ranging from three to eight words. This amount was chosen rather arbitrarily by myself, but more random words seems to be overkill. Using the code below, we can generate a random phrase. 
+![researchful](/article7/amellus_flowers.png)
+
+![researchful](/article7/amellus.jpg)
+
+
+From here, we can go ahead and sample variable length phrases ranging from three to eight words. This amount was chosen rather arbitrarily by myself, but more random words seems to be overkill. With this method, we arrive at the (nonsensical) phrases "forebowels equivorous duodenary circumduction suburbanity bruckleness semiconspicuous superadornment", "birefracting presagefully malignation angelico Anaptomorphidae Boni dovekie", and "orthographer protocanonical amoretto pinon".
+
 
 ![researchful](/article7/image007.png)
 
@@ -24,7 +31,11 @@ We can go ahead and sample variable length phrases ranging from three to eight w
 
 ![researchful](/article7/image011.png)
 
+In this case, DALL-E appears to pick and choose which words to generate from the provided phrases. For the first phrase, it appears that the word "suburbanity" had the largest influence, as most images appear to be of miscellaneous neighborhoods or front yards. For the second image, it's very evident that "Dovekie", a type of bird, had the largest influence on generation. For the last batch, however, it's pretty hard to tell what's going on. There doesn't seem to be much rhyme or reason to the generated images. 
+
 # Random Characters 
+
+Here's where it 
 
 ![researchful](/article7/image013.png)
 

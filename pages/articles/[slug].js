@@ -17,7 +17,7 @@ function Article({ content, frontmatter }) {
         <ReactMarkdown 
           rehypePlugins={[rehypeRaw]} 
           children={content} 
-          className="prose lg:prose-lg prose-blue max-w-none mx-auto hover:prose-img:scale-125"
+          className="prose lg:prose-lg prose-blue max-w-none mx-auto hover:prose-img:scale-150 hover:prose-img:shadow-xl hover:prose-img:z-50"
           components={{
             gist({node, inline, className, children, ...props}) {
               return (
