@@ -1,0 +1,68 @@
+import VideoSlider from '@/components/VideoSlider'
+import ArticleLayout from '@/components/ArticleLayout'
+
+export const meta = {
+  title: 'A Primer on Regularization',
+  description: `These are some supplementary notes on regularization.`,
+  date: '2023-04-11T17:31:06+00:00',
+}
+
+After taking David Rosenberg's course [Foundations of Machine Learning](https://bloomberg.github.io/foml/), taught at NYU as DSGA 1003, I decided to mock up some visualizations to better understand different forms of regularization. This content is intended to be supplemental, (if you have no clue what I'm talking about, please watch the videos/read through the course notes before viewing this content). I plan to update these notes throughout the course. 
+
+## Regularization
+
+In this case, we are considering Ivanov Regularization, which for some complexity measure $\Omega: \mathcal{F} \to [0, \infty)$ and a fixed $r \geq 0$, we can write our constrained Empirical Risk Minimization (ERM) task as 
+$$
+\min_{f \in \mathcal{F}} \frac{1}{n} \sum_{i = 1}^n \mathbb{\ell(f(x_i), y_i)} 
+$$
+$$
+\text{such that } \Omega(f) \leq r
+$$
+
+If we take our complexity measure to be a p-norm on the weights of our model, we can consider $\Omega(f) = ||w||_p$, where $w$ are the weights of our linear model, and $p$ is the p-norm that we are taken. *It should be noted that this form of regularization is only convex for a p-norm that is greater than or equal to one*.
+
+Two common forms of the p-norm typically used with linear regression are the $l1$ norm and the $l2$ norm. In these situations, the ERMs come to be referred to as LASSO and Ridge regression, respectively. It is a well-known fact that using the $l1$ norm (a p-norm with p = 1) typically leads to weight sparsity. This isn't immediately clear, but can clearly be examined below. In a simple example, we can consider a case where we are trying to learn the weights for a linear classifier in two dimensions, or $w \in \mathbb{R}^2$, which means $w$ takes the form 
+
+$$
+w = \Bigg[\begin{matrix} w_1 \\ w_2 \end{matrix}\Bigg]
+$$
+
+In this case, we can plot the coefficients of our weights subjected to the p-norm of our choosing in two dimensions, with the x-axis representing the value of $w_1$ and the y-axis representing $w_2$. Depending on our initial value of $w$, we can consider the closest point on our plot as to where our constrained weights will end up. The red star represents the initial values of our weights, the blue area represents the "ball" of values of our weights that satisfy our regularization condition, and the black dashed line represents the line between the initial values of our weights and the closest point that satisfies our regularization condition.
+
+<video width="100%" autoPlay loop muted style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}}>
+  <source src="/dsga-1003-notes/half_norm.mp4" type="video/mp4" />
+</video>
+<video width="100%" autoPlay loop muted style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}}>
+  <source src="/dsga-1003-notes/one_norm.mp4" type="video/mp4" />
+</video>
+<video width="100%" autoPlay loop muted style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}}>
+  <source src="/dsga-1003-notes/two_norm.mp4" type="video/mp4" />
+</video>
+
+<VideoSlider video={"/dsga-1003-notes/two_norm.mp4"}>
+</VideoSlider>
+
+Notice how in the case of $p = 0.5$ all of our values get mapped to the corners of the area satisfying our norm condition. This represents how using such a norm induces sparsity, as most of our weights will be mapped to zero. This is also evident in the case of the $p = 1$ or L1 norm (albeit to a lesser extent), which has the added benefit of being convex. On the other hand, the $p = 2$ or L2 norm does not induce sparsity but does nonetheless enforce weights that are smaller in magnitude. It should be noted that this generalizes to higher dimensions of $w$, although it becomes difficult to visualize / conceptualize. 
+
+## Kernels and SVMs 
+We can write the kernelized dual form of the SVM problem as 
+
+$$
+\begin{align*} 
+& \text{maximize}_{\alpha} \sum_{i = 1}^n \alpha_i - \frac{1}{2} \sum_{i,j = 1}^n \alpha_i \alpha_j y_i y_j K_{ij} \\ 
+& \text{subject to }\sum_{i = 1}^n \alpha_i y_i = 0, \alpha_i \in \bigg[0, \frac{c}{n} \bigg] \\
+\end{align*}
+$$
+
+## talk about regularization and how it makes neural networks compare to tree-based models
+
+## Kernels 
+
+
+
+## References 
+- [Linear Algebra for Data Science](https://marylou-gabrie.github.io/linalg-for-ds.html)
+- [Foundations of Machine Learning](https://bloomberg.github.io/foml/)
+- [Khan Academy: The Lagrangian](https://www.youtube.com/watch?v=hQ4UNu1P2kw)
+
+export default ({ children }) => <ArticleLayout meta={meta}>{children}</ArticleLayout>

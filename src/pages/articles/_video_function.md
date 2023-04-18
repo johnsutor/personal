@@ -1,0 +1,1 @@
+ffmpeg -framerate 30 -i norm_1_maxnorm_1_radius_2_%04d.png -c:a copy -shortest -c:v libx264 -pix_fmt yuv420p norm_one.mp4
