@@ -1,8 +1,11 @@
+import ArticleLayout from '@/components/ArticleLayout'
+
 export const meta = {
   title: '🦦 Do-it-yourself Jupyter Notebook Autograder with Otter Grader and Google Cloud',
   description: `With the expansion of SciTeens curriculum program, we decided to set out to create our own Jupyter Notebook autograder for our website.`,
   date: '2022-04-25T17:31:06+00:00',
 }
+
 Pre-collegiate data science education sucks. While interviewing STEM educators across the United States, many expressed a common pitfall for undergraduate research students: a lack of rudimentary data science skills.  To address this difficulty, one of our primary goals at [SciTeens](https://sciteens.org), one of the ways in which we achieve this is by providing students with the opportunity to learn data science skills and how they apply to their own STEM fields of interest.  The professors we spoke to explained that many students don't realize they'll have to use computer science skills outside of computer science courses. In reality, the ability to process large amounts of data is becoming a necessity for virtually all STEM fields, from Meteorology to Exobiology.
 
 To help students improve their data science skills, we at SciTeens decided to host Jupyter Bootcamps through our platform. [Jupyter Notebooks](https://jupyter.org/) are interactive computing interfaces that can be used to conduct data science tasks such as data exploration, cleaning, plotting, and testing. Jupyter supports a multitude of programming languages, including Python, Julia, and R (my personal favorites). Jupyter Notebooks are an invaluable tool for learning how to explore data, especially in Python, due to their support for inline plotting with packages such as Matplotlib. They also use markdown so you can keep notebooks interesting by including spicy TikToks and Memes.
@@ -245,11 +248,11 @@ fetch(
 
 Depending on the UI of your application, you can end up with something that looks like this: 
 
-<video width="100%" autoplay loop muted style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}}>
+<video width="100%" autoPlay loop muted style={{marginLeft: 'auto', marginRight: 'auto', display: 'block'}}>
   <source src="/diy-autograder-with-otter/autograder.mp4" type="video/mp4" />
 </video>
 
 # Closing Remarks
-As you can see, it's pretty damn simple to implement a fully functional autograder with Google Cloud functions. If you have any suggestions for improvements or any questions in general, feel free to [reach out](mailto:john@sciteens.org?subject=Otter%20Autograder)!
+As you can see, it's pretty simple to implement a fully functional autograder with Google Cloud functions. If you have any suggestions for improvements or any questions in general, feel free to [reach out](mailto:john@sciteens.org?subject=Otter%20Autograder)!
 
 export default ({ children }) => <ArticleLayout meta={meta}>{children}</ArticleLayout>

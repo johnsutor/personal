@@ -1,3 +1,5 @@
+import ArticleLayout from '@/components/ArticleLayout'
+
 export const meta = {
   title: '🔀 Replacing pre-trained Pytorch model layers with custom layers',
   description: `My contempt for Batch Normalization and love of Dropout layers led me to upgrade pre-trained convolutional neural networks in the simplest fashion possible.`,
@@ -233,3 +235,5 @@ model = ReplacementNet(resnet18(pretrained=True), nn.Conv2d, nn.Conv2d, kernel_s
 That's all for the sake of this post. Hypothetically, you could implement handlers for each module type as shown above. Furthermore, you could extend the list of keyword arguments to allow for a high degree of customization of layers similarly to as I've done for *target_kernel_size* and *kernel_size*. For most cases, though, replacing only a few normalization and activation layers is sufficient.
 
 If you have any recommendations or better ways for achieving what I've outlined above, don't hesitate to [reach out](mailto:john@sciteens.org?subject=Replacing%20Pytorch%20Model%20Layers%20Blog)! 
+
+export default ({ children }) => <ArticleLayout meta={meta}>{children}</ArticleLayout>

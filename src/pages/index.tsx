@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { useState } from 'react';
 import Layout from '@/components/Layout';
 import Link from 'next/link';
-import { articlesWithMetadata } from '@/lib/helpers';
 
 export default function Home() {
   const [profiles, setProfiles] = useState([
@@ -46,6 +45,27 @@ export default function Home() {
         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path d="M460.6 147.3L353 256.9c-.8.8-.8 2 0 2.8l75.3 80.2c5.1 5.1 5.1 13.3 0 18.4-2.5 2.5-5.9 3.8-9.2 3.8s-6.7-1.3-9.2-3.8l-75-79.9c-.8-.8-2.1-.8-2.9 0L313.7 297c-15.3 15.5-35.6 24.1-57.4 24.2-22.1.1-43.1-9.2-58.6-24.9l-17.6-17.9c-.8-.8-2.1-.8-2.9 0l-75 79.9c-2.5 2.5-5.9 3.8-9.2 3.8s-6.7-1.3-9.2-3.8c-5.1-5.1-5.1-13.3 0-18.4l75.3-80.2c.7-.8.7-2 0-2.8L51.4 147.3c-1.3-1.3-3.4-.4-3.4 1.4V368c0 17.6 14.4 32 32 32h352c17.6 0 32-14.4 32-32V148.7c0-1.8-2.2-2.6-3.4-1.4z"/><path d="M256 295.1c14.8 0 28.7-5.8 39.1-16.4L452 119c-5.5-4.4-12.3-7-19.8-7H79.9c-7.5 0-14.4 2.6-19.8 7L217 278.7c10.3 10.5 24.2 16.4 39 16.4z"/>
         </svg>`
+    }
+  ])
+
+  const [articles, setArticles] = useState([
+    {
+      title: '🌐 Dead Simple I18n Using Google Translate',
+      description: `I18n (Internationalization) has never been simpler to implement using Google Sheets and Python.`,
+      date: '2022-06-12T17:31:06+00:00',
+      slug: 'dead-simple-i18n',
+    },
+    {
+      title: '🦦 Do-it-yourself Jupyter Notebook Autograder with Otter Grader and Google Cloud',
+      description: `With the expansion of SciTeens curriculum program, we decided to set out to create our own Jupyter Notebook autograder for our website.`,
+      date: '2022-04-25T08:03:57+00:00',
+      slug: 'diy-autograder-with-otter',
+    },
+    {
+      title: '🔀 Replacing pre-trained Pytorch model layers with custom layers',
+      description: `My contempt for Batch Normalization and love of Dropout layers led me to upgrade pre-trained convolutional neural networks in the simplest fashion possible.`,
+      date: '2021-04-11T11:42:10+00:00',
+      slug: 'replacing-pytorch-model-layers',
     }
   ])
 
@@ -126,7 +146,7 @@ export default function Home() {
               </p>
             </div>
             {/* Articles */}
-            {/* <div className="w-full text-xl mt-8 max-w-prose mx-auto">
+            <div className="w-full text-xl mt-8 max-w-prose mx-auto">
               <h3 className="text-4xl font-bold">
                 Articles
               </h3>
@@ -135,12 +155,12 @@ export default function Home() {
                 <Link href={"/articles/" + article.slug} key={i}>
                   <div className="py-4 cursor-pointer border-b-2 group transform duration-150 hover:py-6">
                     <h4 className="font-semibold text-3xl">{article.title}</h4>
-                    <p className="italic mt-1">{article.date}</p>
+                    <p className="italic mt-1">{(new Date(article.date)).toLocaleString('en')}</p>
                     <p className='text-gray-700'>{article.description}</p>
                   </div>
                 </Link>
               ))}
-            </div> */}
+            </div>
 
             {/* Projects} */}
             < div className="w-full text-xl mt-8 max-w-prose mx-auto" >
@@ -167,23 +187,3 @@ export default function Home() {
     </>
   )
 }
-
-export async function getStaticProps() {
-  let articles = await articlesWithMetadata()
-  return {
-    props: {
-      articles
-    }
-  }
-}
-// export async function getStaticProps() {
-//   const articles = getSortedData('articles')
-//   const projects = getSortedData('projects')
-
-//   return {
-//     props: {
-//       articles,
-//       projects
-//     }
-//   }
-// }
