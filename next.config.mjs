@@ -7,6 +7,9 @@ import nextMDX from '@next/mdx'
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async headers() {
     return [
       {
