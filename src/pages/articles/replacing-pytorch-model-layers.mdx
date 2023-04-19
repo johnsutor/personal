@@ -3,13 +3,10 @@ import ArticleLayout from '@/components/ArticleLayout'
 export const meta = {
   title: '🔀 Replacing pre-trained Pytorch model layers with custom layers',
   description: `My contempt for Batch Normalization and love of Dropout layers led me to upgrade pre-trained convolutional neural networks in the simplest fashion possible.`,
-  date: '2021-04-11T17:31:06+00:00',
+  date: '2021-04-11T11:42:10+00:00',
 }
 
 [Pretrained Networks](https://pytorch.org/vision/stable/models.html) in Torchvision are pretty killer, especially when it comes to tasks requiring pre-training (such as computer vision tasks that require synthetic data synthetic data). However, I've always loathed the complexity of swapping out layers, activations, and normalizations within pre-trained networks. Torchvision pretrained models aren't necessarily Sequential models, and thus, it's not as simple as swapping a layer in and out; You can end up ruining the forward pass of a pretrained Pytorch neural network by appending to and augmenting its layers. At the same time, I don't want to recreate an entire network from scratch before training. Rather, I'd prefer to switch out a few layers. For example, I prefer to include Dropout layers after my activations, and I much prefer [Group Normalization](https://openaccess.thecvf.com/content_ECCV_2018/papers/Yuxin_Wu_Group_Normalization_ECCV_2018_paper.pdf) to Batch Normalization. 
-
-![Pytorch](https://analyticsindiamag.com/wp-content/uploads/2019/11/PyTorch.png)
-Peace, Love, Pytorch | analyticsindiamag.com
 
 Instead of recreating an entire network, copying over each pretrained layer and defining a new forward method, I'd much prefer to change a network in place. Doing so is pretty simple, and only requires a bit of module tweaking. One of the easiest layer types to replace are the activations of a Pytorch convolutional neural network. Their initializations don't require information regarding the number of channels passed from the previous layer or the number of channels that layer is outputting (which is the case for some normalization layers and convolutional layers). Instead, we can simply pass an instance to our new network class, as well as the pretrained network and the target layers that we wish to replace. In my case, I prefer to insert Dropout layers after activation layers. Thus, I create a *FusedReLU* class to swap into pre-trained networks.
 

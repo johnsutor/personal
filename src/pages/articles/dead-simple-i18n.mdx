@@ -10,7 +10,7 @@ export const meta = {
 Good websites need to be able to accomodate users across the globe. However, providing multi-language support for a website can be daunting to an indie developer or a small developer team with limited resources. Fortunately, with Google Sheets and only a couple of lines of Python, we can very simply get basic (though error-prone) translations to many languages in a format that is compatible with [i18n-next](https://www.i18next.com/).
 
 # Google Sheets
-![Translations in Action](/article5/translations.gif)
+![Translations in Action](/dead-simple-i18n/translations.gif)
 Google Sheets is the G.O.A.T. when it comes to creating translations for an application. We'll use it to actually implement all of our basic translations using formulas. In particular, Sheets has a nifty formula called `GOOGLETRANSLATE` that allows us to effortlessly translate massive amounts of text into any language. Admittedly, the translations aren't always spot-on; there's only so much a language model BERT can do. However, it provides us with a good starting point to which friends fluent in other languages can validate our translations. 
 
 We'll start by creating three columns labeled *Page*, *Component*, *Ref*, and *English*. The *Page* column represents what page we're translating. I use it more broadly to reference the main path that we are translating. *Component* allows us to specify, when applicable, what subpath we are translating. In my case, I have various routes under the path `/signin`, such as the base path (index), as well as a thank you page `/signin/thanks` or a forgot password page `/signin/forgot`. The *Component* row is more so organizational to make our spreadsheet more readable, whereas the *Page* row has utility for when we ultimately translate our application and want to take advantage of [deep keys](https://www.i18next.com/translation-function/essentials).
@@ -24,7 +24,7 @@ Once we've established which pages and refs we wish to translate, we can actuall
 # Export and convert to JSON
 Since we're working with [i18n-next](https://www.i18next.com/), we'll need to convert our translations into a JSON to implement them on the front end. Fortunately, this is very easy to achieve with Python. We'll import our spreadsheet as a CSV by first saving it from Google Sheets. I recommend saving this file as something to the tune of 'translations.csv'.
 
-![Save the CSV](/article5/save.gif)
+![Save the CSV](/dead-simple-i18n/save.gif)
 
 Next, we can create a new python file. We'll need Pandas installed on your system or within the environment from which you'll be executing this command. We can import the file as a Pandas DataFrame using the code below 
 
