@@ -23,8 +23,10 @@
     "postcss": "8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rehype-highlight": "^6.0.0",
     "rehype-katex": "^6.0.2",
     "remark-math": "^5.1.1",
+    "tailwind-highlightjs": "^2.0.1",
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4"
   },

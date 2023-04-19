@@ -1,6 +1,14 @@
 import math from 'remark-math'
 import katex from 'rehype-katex'
 import nextMDX from '@next/mdx'
+import highlight from 'rehype-highlight'
+import python from 'highlight.js/lib/languages/python'
+import javascript from 'highlight.js/lib/languages/javascript'
+
+const languages = {
+  python,
+  javascript,
+}
 
 /** @type {import('next').NextConfig} */
 
@@ -63,7 +71,10 @@ const withMDX = nextMDX({
   options: {
     providerImportSource: '@mdx-js/react',
     remarkPlugins: [math],
-    rehypePlugins: [katex],
+    rehypePlugins: [katex, [highlight, {
+      ignoreMissing: true,
+      languages,
+    }]],
   },
 })
 
