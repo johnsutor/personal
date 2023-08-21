@@ -77,10 +77,10 @@ export default function Home() {
       url: "https://github.com/Sci-Teens/sciteens"
     },
     {
-      title: "🟨 Fordle",
-      tags: ["React", "JavaScript", "Wordle"],
-      about: "This is a clone of Wordle for those of us who don't feel like playing Wordle, but want to flex our knowledge of five-letter words with our friends. Simply click a statistic to edit the value.",
-      url: "https://fordle-nine.vercel.app/"
+      title: "👨‍💻 Leetcode Study Tool",
+      tags: ["Leetcode", "Python"],
+      about: "This package provides a command-line tool for interracting with Leetcode to create flashcards for study, which can then be imported into Anki.",
+      url: "https://github.com/johnsutor/leetcode-study-tool"
     },
     {
       title: "📷 Leopardi (Class-based Synthetic Data Generator)",
