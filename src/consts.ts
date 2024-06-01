@@ -9,17 +9,17 @@ export const SITE: Site = {
 };
 
 export const HOME: Metadata = {
-  TITLE: "Home",
+  TITLE: "John Sutor's Home Page",
   DESCRIPTION: "Home page of John Sutor's personal website.",
 };
 
 export const BLOG: Metadata = {
-  TITLE: "Blog",
+  TITLE: "John Sutor's Blog",
   DESCRIPTION: "A collection of my blog posts.",
 };
 
 export const PROJECTS: Metadata = {
-  TITLE: "Projects",
+  TITLE: "John Sutor's Blog Projects",
   DESCRIPTION:
     "A collection of my projects with links to repositories and live demos.",
 };
@@ -28,6 +28,10 @@ export const SOCIALS: Socials = [
   {
     NAME: "GitHub",
     HREF: "https://github.com/johnsutor",
+  },
+  {
+    NAME: "HuggingFace",
+    HREF: "https://huggingface.co/johnsutor",
   },
   {
     NAME: "LinkedIn",
