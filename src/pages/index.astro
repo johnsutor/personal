@@ -6,6 +6,8 @@ import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import Image from "astro/components/Image.astro";
+import JohnImage from "../images/john.jpg";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -23,7 +25,11 @@ const projects: CollectionEntry<"projects">[] = (
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <span class="animate">
-    <img src="./john.jpg" />
+      <Image
+        src={JohnImage}
+        alt="John Sutor"
+        densities={[1.5, 2]}
+      />
     </span>
     <div class="space-y-16">
       <section>

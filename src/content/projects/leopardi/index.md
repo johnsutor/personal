@@ -6,3 +6,5 @@ demoURL: "https://github.com/johnsutor/leopardi"
 repoURL: "https://github.com/johnsutor/leopardi"
 ---
 
+## About
+Leopardi aims to make it easy to create robust synthetic images by importing scenes into Blender. It takes care of the boring, strenuous, and difficult stuff so that you can devote your time to training and evaluating your machine learning models. It is now deprecated and read-only, and likely doesn't work with new versions of Blender. 

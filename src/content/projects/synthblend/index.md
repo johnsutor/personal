@@ -6,3 +6,5 @@ demoURL: "https://github.com/johnsutor/synthblend"
 repoURL: "https://github.com/johnsutor/synthblend"
 ---
 
+## About 
+A library for generating simple synthetic images from withing Blender. Imposes a 3D model onto a predetermined background.
