@@ -4,6 +4,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import pagefind from "astro-pagefind";
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,4 +15,8 @@ export default defineConfig({
       theme: "css-variables",
     },
   },
+  output: 'hybrid',
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
 });
