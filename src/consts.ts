@@ -13,6 +13,11 @@ export const HOME: Metadata = {
   DESCRIPTION: "Home page of John Sutor's personal website.",
 };
 
+export const PRESS: Metadata = {
+  TITLE: "John Sutor's Press",
+  DESCRIPTION: "A collection of my press mentions, or articles about me.",
+};
+
 export const BLOG: Metadata = {
   TITLE: "John Sutor's Blog",
   DESCRIPTION: "A collection of my blog posts.",
