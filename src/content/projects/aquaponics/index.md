@@ -1,7 +1,9 @@
 ---
 title: "🐟 Aquaponics"
 description: "An in-apartment aquaponics system for growing herbs."
-date: "29/11/2024"
+date: "11/29/2024"
+demoURL: "#"
+repoURL: "#"
 ---
 
 ## About 
