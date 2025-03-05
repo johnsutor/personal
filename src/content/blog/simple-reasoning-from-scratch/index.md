@@ -1,6 +1,6 @@
 ---
-title: "🤔 Simple LLM Reasoning from Scratch"
-description: "Learn how to quickly and easily teach LLMs to reason, from scratch."
+title: "🤔 LLM Reasoning Datasets from Scratch"
+description: "Learn how to quickly and easily create LLMs reasoning, from scratch."
 date: "2025-01-06"
 ---
 ## Introduction
