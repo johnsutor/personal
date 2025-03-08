@@ -7,12 +7,16 @@ date: "2025-03-03"
 ## Introduction
 I've recently been experimenting with training RLHF models on popular datasets, and I've compiled some practical tips that have improved my results and experimentation times. Some of these notes will be glaringly obvious; others maybe not so much. Either way, they should save you time ansd frustration when working with RLHF. 
 
-**NOTE** I plan on adding some plots from Weights and Biases soon to back up my claims, but for now, just take my word for it? 
+**NOTE** I plan on adding more plots from Weights and Biases soon to back up my claims, but for now, just take my word for it? 
 
 ## Model Selection
 A lot of my recommendations here stem from using the Qwen family of models. I have not rigorously explored other model families, but I leave that for you to do (and you can call me out if and when these recommendations don't apply to other model families). [Recent work](https://arxiv.org/pdf/2503.01307) suggests that Qwen has nice intrinsic properties that allow it to reason well, making it optimal for GRPO tasks.
 
-There are a few critical considerations when selecting a base model for RLHF. I first opt for a model with at least 1B parameters. I'm constrained to a 4090 card, and I prefer to do full model fine-tunes instead of LoRAs, so I stuck with the [Qwen 2.5 1.5B parameter model](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct). I tried out the 0.5B parameter model as well, but it wastes a lot of time trying to get the proper output formatting (i.e. the think and answer tags) right. I also tried out the non-instruction tuned models and they were fairly abysmal. This makes total sense though: we provide a prompt for these models that specifically instructs them to use think and answer tags. 
+There are a few critical considerations when selecting a base model for RLHF. I first opt for a model with at least 1B parameters. I'm constrained to a 4090 card, and I prefer to do full model fine-tunes instead of LoRAs, so I stuck with the [Qwen 2.5 1.5B parameter model](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct). I tried out the 0.5B parameter model as well, but it wastes a lot of time trying to get the proper output formatting (i.e. the think and answer tags) right.
+
+![Average Rewards Between Models](average_rewards_between_models.png)
+
+ I also tried out the non-instruction tuned models and they were fairly abysmal. This makes total sense though: we provide a prompt for these models that specifically instructs them to use think and answer tags. 
 
 ## Saving Time and Memory
 Much of the notes I have below generally apply to training large language models, but they're particularly relevant when working with Reinforcement Learning used in conjunction with LLMS, which is even more resource-intensive.
@@ -45,7 +49,7 @@ input_texts = [
             {"role": "user", "content": prompt},
             {
                 "role": "assistant",
-                "content": "Let me solve this step by step.\n<think>",
+                "content": "Let's solve this step by step\n<think>",
             },
         ],
         tokenize=False,
